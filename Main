@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Item> itemList = new ArrayList<>();
+        for (int i = 101; i <= 115; i++) {
+            itemList.add(new Item(i, "Item " + i));
+        }
+
+        System.out.println("All Items :");
+        for (Item item : itemList) {
+            item.show();
+        }
+
+        List<Item> firstFiveItems = itemList.subList(0, 5);
+
+        HashSet<Item> firstFiveSet = new HashSet<>(firstFiveItems);
+
+        System.out.println("\nFirst Five Items in the HashSet:");
+        for (Item item : firstFiveSet) {
+            item.show();
+        }
+    }
+}
+class Item {
+    int id;
+    String name;
+
+    public Item(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public void show() {
+        System.out.println("Item Name: " + name);
+    }
+}
